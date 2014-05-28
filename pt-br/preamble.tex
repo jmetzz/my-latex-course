@@ -2,7 +2,7 @@
 % Common preamble for all three parts.
 %
 
-\usepackage[brazil,english]{babel}
+\usepackage[english,brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{color}
@@ -37,7 +37,7 @@
 % this is where the example source files are loaded from
 % do not include a trailing slash
 %\newcommand{\fileuri}{https://raw.github.com/jdleesmiller/latex-course/master/en}
-\newcommand{\fileuri}{https://raw.githubusercontent.com/jmetzz/latex-course/master/pt-br}
+\newcommand{\fileuri}{https://raw.githubusercontent.com/jmetzz/my-latex-course/master/pt-br}
 
 \newcommand{\wlserver}{https://www.writelatex.com}
 \newcommand{\wlnewdoc}[1]{\wlserver/docs?snip\_uri=\fileuri/#1\&splash=none}
@@ -106,14 +106,35 @@
    \end{minipage}
    \end{tabular}}
 
-\title{Uma Introdução Interativa ao \LaTeX}
-\author{Dr John D. Lees-Miller}
+\newcommand{\Simley}[1]{%
+\begin{tikzpicture}[scale=0.3]
+    \newcommand*{\SmileyRadius}{1.0}%
+    \draw [fill=brown!10] (0,0) circle (\SmileyRadius)% outside circle
+        %node [yshift=-0.22*\SmileyRadius cm] {\tiny #1}% uncomment this to see the smile factor
+        ;  
+
+    \pgfmathsetmacro{\eyeX}{0.5*\SmileyRadius*cos(30)}
+    \pgfmathsetmacro{\eyeY}{0.5*\SmileyRadius*sin(30)}
+    \draw [fill=cyan,draw=none] (\eyeX,\eyeY) circle (0.15cm);
+    \draw [fill=cyan,draw=none] (-\eyeX,\eyeY) circle (0.15cm);
+
+    \pgfmathsetmacro{\xScale}{2*\eyeX/180}
+    \pgfmathsetmacro{\yScale}{1.0*\eyeY}
+    \draw[color=red, domain=-\eyeX:\eyeX]   
+        plot ({\x},{
+            -0.1+#1*0.15 % shift the smiley as smile decreases
+            -#1*1.75*\yScale*(sin((\x+\eyeX)/\xScale))-\eyeY});
+\end{tikzpicture}%
+}%
+
+
+\title{Construção de documentos com \LaTeX}
+\author{Jean Metz}
 
 
 \titlegraphic{%
-\includegraphics[page=4]{wllogo-series}\\[1em]
-\includegraphics[height=24pt]{UoB-logo}
-\qquad
-\includegraphics[height=24pt]{setsquared_supported}
+	\includegraphics[page=4]{wllogo-series}\\[1em]
+	\includegraphics[height=24pt]{logo_UTFPR}
+	\qquad\qquad
+	\includegraphics[height=24pt]{logo_mit5}
 }
-

@@ -2,6 +2,8 @@
 
 \input{preamble.tex}
 
+
+
 \subtitle{Parte 1: Conceitos Básicos}
 
 \begin{document}
@@ -10,11 +12,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\titlepage
+	\titlepage
 \end{frame}
 
-\input{translation-credits}
 
+\input{credits}
+
+\section{Introdução}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -35,6 +39,36 @@
 				\item Existem pacotes para artigos, apresentações, planilhas eletrônicas,  \ldots
 			\end{itemize}
 	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Vantagens ao usar \LaTeX{}?}
+	\begin{itemize}\scriptsize
+		\item O padrão matemático em \TeX{} gera equações e funções corretamente formatadas. Em Word, o editor de equações está longe de ser ideal.
+		\item \TeX{} não tem \textit{bugs} — o Word, como sabemos, está recheado de \textit{bugs}.
+		\item \TeX{} é gratuito e livre.
+		\item Em \TeX{}, você pode comentar o seu código/texto no mesmo espaço em que seu conteúdo é gerado.
+		\item \TeX{} oferece uma linguagem completa. Ou seja: você pode criar funções que efetuam um procedimento para você (muitas dessas funções não podem ser criadas via macros em Word).
+		\item Não há vírus de macros em \TeX. Ou seja: maior segurança.
+		\item Não há incompatibilidade de versões: se você criou um arquivo \TeX{} em 1995, conseguirá abri-lo perfeitamente hoje.
+		\item \LaTeX{} oferece uma maneira independente de lidar com bibliografias. Nada de comprar \textit{EndNote} ou algo parecido: toda a sua biblioteca de referências é mantida em um simples arquivo, ao qual você conecta citações.
+		\item Documentos em \TeX{} são pequenos (em bytes).
+		\item \LaTeX{} é o padrão científico/acadêmico em diversas áreas do conhecimento — e nos maiores centros acadêmicos do mundo.
+		\item \LaTeX{} gera documentos mais aprimorados esteticamente, com menos hifenizações e menos espaçamentos exagerados entre palavras.
+		\item Seu \texttt{pdf} é gerado com uma estrutura interna, em que você acessa seções via \textit{links} — isso é feito automaticamente com um pacote específico.
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Ajuste de atitude}
+
+\begin{itemize}
+	\item Use comandos para descrever `o que é', não `como parece'.
+	\item Foque no conteúdo.
+	\item Deixe que o \LaTeX{} faça o trabalho.
+\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,6 +98,29 @@ na plan\'icie.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Inconveniente}
+
+\begin{itemize}
+	\item Por padrão, os acentos não são como em editores de texto :(
+	
+	Lembrem-se que foi incialmente desenvolvido para Inglês (não há acentos)
+
+	\item Devemos usar caracteres de escape para acentuar palavras: 
+	 \keystrokebftt{\bs} seguido do símoblo que representa o acento, 
+	 seguido da letra que deve ser acentuada. Exemplo:
+\end{itemize}
+
+	\begin{exampletwoup}
+			\'a, \~a, \^a, \`a
+	\end{exampletwoup}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Mais exemplos de comandos e suas respectivas saídas \ldots}
 	\begin{exampletwoup}
 		\begin{itemize}
@@ -88,22 +145,37 @@ na plan\'icie.
 	\tiny{Image from \url{http://www.andy-roberts.net/writing/latex/importing_images}}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Ajuste de atitude}
-
-\begin{itemize}
-	\item Use comandos para descrever `o que é', não `como parece'.
-	\item Foque no conteúdo.
-	\item Deixe que o \LaTeX{} faça o trabalho.
-\end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Básico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ferramentas}
+\begin{frame}[fragile]{\insertsubsection {} para edição}
+	\begin{itemize}
+		\item \wllogo{} ... online e colaborativo
+		\item TexMaker ... free
+		\item \TeX works ... padrão do Mik\TeX
+		\item WinShell ... free
+		\item TexNicCenter ... free
+		\item WinEdt ... pago :(
+		\item \ldots
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsection {} para compilação}
+	\begin{itemize}
+		\item Mik\TeX{} - Windows
+		\item \TeX Live ou tetex - *nix
+		\item Mac\TeX{} - Mac OS 
+		\vskip 3ex
+		\item ou use o \wllogo{} para não se incomodar com a instalação da plataforma!
+	\end{itemize}
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,7 +209,7 @@ na plan\'icie.
 				Para melhores resultados, por favor use \href{http://www.google.com/chrome}{Google Chrome} ou uma vers\~ao recente do \href{http://www.mozilla.org/en-US/firefox/new/}{FireFox}.
 			\end{center}
 		\vskip 2ex
-		\item Conforme veremos os próximos slides, teste os exemplos os digitando no documento de exemplo no write\LaTeX.
+		\item Conforme passamos pelos próximos \textit{slides}, teste os exemplos os digitando no documento de exemplo no \wllogo.
 		\item \textbf{Não agora. Você deve testá-los conforme vamos passando pelos exemplos!}
 	\end{itemize}
 \end{frame}
@@ -209,7 +281,7 @@ na plan\'icie.
 	
 	\begin{block}{Dicas em caso de erros}
 		\begin{enumerate}
-			\item \textit{Don't panic}! Erros acontecem.
+			\item \alert{Don't panic}! Erros acontecem.
 			\item Corrija assim que eles aparecerem --- se o que voc\^e acabou de digitar causou um erro, voc\^e pode \textit{debuggar} a partir desse ponto.
 			\item Se existem m\'ultiplos erros, comece com o primeiro --- a causa pode estar acima dele :(
 		\end{enumerate}
@@ -242,6 +314,8 @@ na plan\'icie.
 	\end{itemize}
 \end{frame}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -273,6 +347,38 @@ na plan\'icie.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Atenção: Caracteres e símbolos especiais}
+
+  Alguns caracteres tem significado especial em \TeX. Se precisar deles, deve-se entrar como comando do \TeX.
+  
+  \vspace{5mm} 
+  \begin{center}\scriptsize
+  \begin{tabular}{l| l| l}
+  \hline \hline
+  Caractere & Significado & Comando \\ \hline \hline
+    $\backslash$~~   & início de comando        	& {\verb+$\backslash$+}    \\
+                     &                      		& nota: {\verb+\\+} = nova linha \\
+    \$               & muda para modo matemático   	& {\verb+\$+}              \\
+    \&               & tabulador            		& {\verb+\&+}              \\
+    \%               & comenta a linha 				& {\verb+\%+}              \\
+    \#               &                      		& {\verb+\#+}              \\
+    \textasciitilde  &                      		& {\verb+\textasciitilde+} \\
+    \textbar         & linhas verticais em tabelas 	& {\verb+\textbar+}        \\
+    \_               & define subescrito  ($x_y$) 	& {\verb+\_+}              \\
+    \textasciicircum & define superescrito ($x^y$)	& {\verb+\textasciicircum+}\\
+    \{ \}            & delimitador de comando    	& {\verb+\{ \}+}           \\
+    $[\ ]$           & delimitador de comando    	& {\verb+$[ ]$+}           \\
+    `` ''            & aspas      					& {\verb+`` ''+}           \\
+%    $> <$            & tabbing              		& {\verb+$> <$+}           \\
+\hline
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\insertsubsection{}: Notação}
 	\begin{itemize}
 		\item Use circunflexo \keystrokebftt{\^} para sobrescritos e \textit{underscore} \keystrokebftt{\_} para subscritos.
@@ -298,33 +404,126 @@ na plan\'icie.
 	\end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{}: Mostrando Equaç\~oes}
-\begin{itemize}
-\item Se for uma equação grande e assustadora, \emph{mostre-a} em uma linha ``própria'' usando o comando
-\cmdbegin{equation} e \cmdend{equation}.
-\\
-[2ex]
-\begin{exampletwouptiny}
-	As ra\'izes de um equa\c{c}\~ao 
-	quadrada s\~ao dadas por 
-	\begin{equation}
-	x = \frac{-b \pm \sqrt{b^2 - 4ac}}
-	         {2a}
-	\end{equation}
-	onde $a$, $b$ e $c$ s\~ao \ldots
-\end{exampletwouptiny}
-\vskip 1em
-{\scriptsize Atenção: \LaTeX{} ignora espaços em elementos matemáticos, mas não aceita linhas em branco em equações --- não coloque linhas em brano nas suas equações.}
-\end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Ambientes}
+\begin{frame}[fragile]{\insertsubsection{}: Exemplos de recursos matemáticos}
+
+\begin{columns}
+	\begin{column}[t]{.4\textwidth}
+		 $x^5$ 
+		 
+		\
+		 
+		 $\sqrt{x^2+\sqrt[3]{y}}$ 
+
+		\
+		 
+		 $\frac{1}{\frac{x^2+y^2+z^2}{x+y}}$ 
+
+		\
+		 
+		 ${n\choose {n-k}}$  
+
+		\
+		 
+		 $\sum_{i=1}^{n}a_i$  
+
+		\
+		 
+		 $\int \limits_{-\infty}^{\infty}x^3$ 
+
+	\end{column}
+
+	\begin{column}[t]{.6\textwidth}
+	\begin{minted}[fontsize=\scriptsize]{latex} 
+		$x^5$ 
+		
+		$\sqrt{x^2+\sqrt[3]{y}}$
+		
+		$\frac{1}{\frac{x^2+y^2+z^2}{x+y}}$ 
+		
+		${n\choose {n-k}}$ 
+		
+		$\sum_{i=1}^{n}a_i$ 
+		
+		$\int \limits_{-\infty}^{\infty}x^3$  
+		\end{minted}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsubsection{}: Mostrando Equaç\~oes}
+	\begin{itemize}
+	\item Se for uma equação grande e assustadora, \emph{mostre-a} em uma linha ``própria'' usando o comando
+	\cmdbegin{equation} e \cmdend{equation}.
+	\\
+	[2ex]
+	\begin{exampletwouptiny}
+		As ra\'izes de um equa\c{c}\~ao 
+		quadrada s\~ao dadas por 
+		\begin{equation}
+		x = \frac{-b \pm \sqrt{b^2 - 4ac}}
+		         {2a}
+		\end{equation}
+		onde $a$, $b$ e $c$ s\~ao \ldots
+	\end{exampletwouptiny}
+	\vskip 1em
+	{\scriptsize \alert{Atenção}: \LaTeX{} ignora espaços em elementos matemáticos, mas não aceita linhas em branco em equações --- não coloque linhas em brano nas suas equações.}
+	\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsubsection{}: Mostrando Equaç\~oes}
+    
+\begin{exampletwouptiny}    
+    if $a$ and $b$ are legs of a
+    right-angled triangle and $c$ 
+    the hypotenuse, then
+    \begin{equation}
+       c^2=a^2+b^2
+    \end{equation}
+    (Theorem of Pythagoras).
+\end{exampletwouptiny}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Atenção: Símbolos do alfabeto Grego}
+	\begin{tabular}{*8l}
+		{\verb+\alpha+}: $\alpha$        & {\verb+\theta+}: $\theta$       & {\verb+o+}: $o$            & {\verb+\tau+}: $\tau$         \\
+		{\verb+\beta+}: $\beta$         & {\verb+\vartheta+}: $\vartheta$    & {\verb+\pi+}: $\pi$          & {\verb+\upsilon+}: $\upsilon$     \\
+		{\verb+\gamma+}: $\gamma$        & {\verb+\gamma+}: $\gamma$       & {\verb+\varpi+}: $\varpi$       & {\verb+\phi+}: $\phi$    \\
+		{\verb+\dekta+}: $\delta$        & {\verb+\kappa+}: $\kappa$       & {\verb+\rho+}: $\rho$         & {\verb+\varphi+}: $\varphi$      \\
+		{\verb+\epsilon+}: $\epsilon$      & {\verb+\lambda+}: $\lambda$      & {\verb+\varrho+}: $\varrho$      & {\verb+\chi+}: $\chi$         \\
+		{\verb+\varepsilon+}: $\varepsilon$   & {\verb+\mu+}: $\mu$          & {\verb+\sigma+}: $\sigma$       & {\verb+\psi+}: $\psi$         \\
+		{\verb+\zeta+}: $\zeta$         & {\verb+\nu+}: $\nu$          & {\verb+\varsigma+}: $\varsigma$    & {\verb+\omega+}: $\omega$       \\
+		{\verb+\eta+}: $\eta$          & {\verb+\xi+}: $\xi$                                          \\
+		                                                                \\
+		{\verb+\Gamma+}: $\Gamma$        & {\verb+\Lambda+}: $\Lambda$      & {\verb+\Sigma+}: $\Sigma$       & {\verb+\Psi+}: $\Psi$         \\
+		{\verb+\Delta+}: $\Delta$        & {\verb+\Xi+}: $\Xi$          & {\verb+\Upsilon+}: $\Upsilon$     & {\verb+\Omega+}: $\Omega$       \\
+		{\verb+\Theta+}: $\Theta$        & {\verb+\Pi+}: $\Pi$          & {\verb+\Phi+}: $\Phi$
+	\end{tabular}
+\end{frame}
+
+\subsection{Listas de elementos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsubsection{} - Ambientes}
 	\begin{itemize}
 		\item \bftt{equation} é um  \emph{ambiente} --- um contexto.
 		\item Um mesmo comando pode produzir sa\'idas distintas em diferentes contextos.
@@ -349,7 +548,7 @@ na plan\'icie.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Ambientes}
+\begin{frame}[fragile]{\insertsubsection{} - Ambientes}
 	\begin{itemize}
 		\item Os comandos \cmdbs{begin} e \cmdbs{end} s\~ao usados para criar muitos ambientes diferentes.
 		\vskip 2ex
@@ -371,10 +570,137 @@ na plan\'icie.
 	\end{itemize}
 \end{frame}
 
+
+			
+\section{Pacotes}
+\subsection{Internacionalização}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Pacotes}
+\begin{frame}[fragile]{\insertsubsection{} - Pacote babel}
+	\begin{itemize}
+		\item O pacote \cmd{babel} é utilizado para internacionalização.
+		\item Este pacote é utilizado para três funcionalidades especiais:
+		\begin{itemize}
+			\item Hifenização e separação silábica.
+			\item Regras ortográficas específicas de cada idioma. Em Francês, por exemplo, é obrigatório colocar um espaço antes do símbolo \keystrokebftt{:}.
+			\item Tradução de termos já conhecidos no ambiente, por exemplo \textit{section}.
+		\end{itemize}
+		\item Configuração: 
+			\begin{minted}[fontsize=\small,frame=single]{latex}
+				\usepackage[english,brazil]{babel}
+			\end{minted}
+			nesse caso o último idioma está ativo por \textit{default}.
+			
+		\item Mudar o idioma \textit{default}:
+			\begin{minted}[fontsize=\small,frame=single]{latex}
+				\selectlanguage{languageA}
+			\end{minted}
+
+	\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsubsection{} - Pacote babel}
+	\begin{itemize}
+
+		\item Mudar temporariamente:
+			\begin{minted}[fontsize=\small,frame=single]{latex}
+				\foreignlanguage{english}{Text in another language}
+			\end{minted}
+
+			\vskip 2ex
+				
+			\begin{minted}[fontsize=\small,frame=single]{latex}
+				\begin{otherlanguage}{english}
+				Text in language B. This environment switches 
+				all language-related definitions, like the 
+				language specific names for figures, tables etc.
+				to the other language.
+				\end{otherlanguage}
+			\end{minted}
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Atenção - \cmd{hyphenation}}
+	\begin{itemize}
+
+		\item E se o \cmd{babel} não souber seperar/hifenar alguma palavra?
+		\item Use o comando \cmd{hyphenation} no preâmbulo do documento.
+		
+		
+			\begin{minted}[fontsize=\small,frame=single]{latex}
+				\hyphenation{fortran, er-go-no-mi-a}
+			\end{minted}
+
+			\vskip 1ex
+			Nesse caso, a palavra ``fortran'' não deve ser dividida, ao passo que ``ergonomia'' deve ser dividida (quando necessário) seguindo o padrão de divisão de sílabas especificado pelo símbolo \keystrokebftt{-}.
+
+
+			\vskip 2ex
+			alternativa:
+			\begin{minted}[fontsize=\small,frame=single]{latex}
+				Programadores \mbox{fortran} foram
+				os primeiros a sofrerem com problemas
+				de er\-go\-no\-mi\-a 
+			\end{minted}
+			
+			o \cmd{mbox} não permite que a palavra seja dividida.
+
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Atenção - codificação de caracteres}
+	\begin{itemize}
+		\item Percebe-se que alguns caracteres são tratados como especiais pelo \LaTeX. Por exemplo o \keystrokebftt{ç}.
+	\end{itemize}
+			
+			
+			\begin{minipage}{0.55\linewidth}
+				\inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
+			  {encoding1.tex}
+			\end{minipage}	
+			\begin{minipage}{0.35\linewidth}
+				\includegraphics[width=\textwidth,clip,trim=2in 9in 3.5in 1in]{encoding1.pdf}
+			\end{minipage}
+			
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Atenção - codificação de caracteres}
+
+	Para não ter dor de cabeça com isso:
+
+			\begin{minipage}{0.55\linewidth}
+				\inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
+			  {encoding2.tex}
+			\end{minipage}	
+			\begin{minipage}{0.35\linewidth}
+				\includegraphics[width=\textwidth,clip,trim=2in 9in 3.5in 1in]{encoding2.pdf}
+			\end{minipage}
+
+\end{frame}
+
+
+
+
+\subsection{Mais comandos matemáticos - Pacote amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsubsection{}}
 
 	\begin{itemize}
 		\item Todos os comandos e ambientes usados at\'e agora est\~ao presentes 
@@ -397,10 +723,42 @@ na plan\'icie.
 	\end{itemize}
 \end{frame}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{}: Exemplos com \bftt{amsmath}}
+\begin{frame}[fragile]{\insertsubsection{}}
+
+	\begin{itemize}
+		\item Além de carregar o pacote de interesse, é possível especificar elementos de configuração que são opcionais.
+		\item A sintaxe para a importação e configuração de um pacote é: 
+			\begin{center}
+				\verb+\usepackage[<opções>]{<nome do pacote>}+
+			\end{center}			
+		
+			\begin{minted}[fontsize=\scriptsize,frame=single]{latex}
+				\documentclass{article}
+				\usepackage{amsmath} % 
+				\usepackage[brazil]{babel} % configurado para Portugues brasileiro
+				\usepackage[utf8]{inputenc} % configurado para codificacao utf8
+
+				\ldots
+				\begin{document}
+					% agora podemos usar os comandos 
+					% definidos em amsmath ...
+					% alem disso, alguns elementos 
+					% padrao do latex serao traduzidos
+					% para Portugues brasileiro
+				\end{document}
+			\end{minted}
+	\end{itemize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsubsection{}: Exemplos}
 \vskip 3ex
 	\begin{itemize}
 		\item Use \bftt{equation*} (``equation-star'') para remover a numeração das equações.
@@ -413,7 +771,7 @@ na plan\'icie.
 \end{frame}
 
 
-\begin{frame}[fragile]{\insertsubsection{}: Exemplos com \bftt{amsmath}}
+\begin{frame}[fragile]{\insertsubsection{}: Exemplos}
 	\begin{itemize}
 
 		\item \LaTeX{} trata letras adjacentes como multiplicação de variáveis, o que nem sempre é o que queremos. \bftt{amsmath} define comandos para muitos operadores matemáticos comuns.
@@ -440,7 +798,7 @@ na plan\'icie.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{}: Exemplos com \bftt{amsmath}}
+\begin{frame}[fragile]{\insertsubsection{}: Exemplos}
 	\begin{itemize}
 	{\small
 		\item Alinhando uma sequência de equações ao sinal de igualdade
@@ -465,6 +823,7 @@ na plan\'icie.
 	}
 	\end{itemize}
 \end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -496,6 +855,41 @@ na plan\'icie.
 	\end{itemize}
 \end{frame}
 
+
+\section{Compilação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Gerando o arquivo de saída}
+	\begin{itemize}
+		\item Se você não estiver utilizando um serviço online como o \wllogo, terá que compilar seu código \LaTeX{} localmente para convertê-lo em um formato ideal para publicação, por exemplo \cmd{pdf} ou \cmd{ps}.
+		\item Supondo que o ambiente \LaTeX{} esteja corretamente configurado, basta rodar o comando \cmd{latex} (ou equivalente) passando como entrada seu arquivo fonte.
+	\end{itemize}
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{Latex-file-flow.png}
+	\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Gerando o arquivo de saída}
+	\begin{itemize}
+		\item Como resultado do processo de compilação, diversos arquivos são criados.
+	\end{itemize}
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{latex-compile-files.png}
+	\end{center}
+	
+	\textcolor{red}{arquivo fonte .tex}
+	
+	\textcolor{green}{arquivos de trabalho/temporários}
+
+	\textcolor{blue}{arquivo de saída final}
+\end{frame}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -509,8 +903,9 @@ na plan\'icie.
 		\item Escrever equações matemáticas bonitas.
 		\item Usar diversos ambientes diferentes.
 		\item Carregar pacotes.
+		\item Como funciona o processo de geração do arquivo de saída.
 		\end{itemize}
-		\item Isso é maravilhoso!
+		\item Great job!
 		\item Na Parte 2, veremos como usar \LaTeX{} para escrever documentos estruturados em seções, referências cruzadas, figuras, tabelas e bibliografias. Nos vemos lá!
 	\end{itemize}
 \end{frame}

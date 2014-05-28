@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[xcolor=table]{beamer}
 
 \input{preamble.tex}
 
@@ -13,7 +13,7 @@
 \titlepage
 \end{frame}
 
-\input{translation-credits}
+\input{credits}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,8 +75,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Seções}
-\begin{frame}{\insertsubsection}
+\subsection{Estrutura}
+\begin{frame}{\insertsubsection{} -  Seções}
 	\begin{itemize}{\small
 		\item Use apenas \cmdbs{section} e \cmdbs{subsection}.
 		\item Consegue adivinhar o que \cmdbs{section*} e \cmdbs{subsection*} fazem?
@@ -89,6 +89,42 @@
 	\fbox{
 		\includegraphics[width=\textwidth,clip,trim=2.2in 6.2in 2.2in 1in]{structure-sections.pdf}}
 	\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsection{} - Outras partes}
+
+E se eu precisar de mais partes para dividir o texto?
+
+  \begin{itemize}
+    \item \cmdbs{part}
+    \item \cmdbs{chapter}
+    \item \cmdbs{section}
+    \item \cmdbs{subsection}
+    \item \cmdbs{subsubsection}
+    \item \cmdbs{paragraph}
+  \end{itemize}
+  
+  \alert{Atenção:} as partes disponíveis dependem da classe de documento que está configurada. Veremos sobre classes mais a frente.
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsection{} - Organização em arquivos}
+
+\alert{Dica:} Use arquivos separados para, digamos, cada capítulo. No documento raíz, use comandos para incluir os outros arquivos:
+
+\begin{itemize}
+	\item \cmdbs{input}: lê o arquivo ``as is''
+	\item \cmdbs{include}:	equivalente a \cmdbs{clearpage} \cmdbs{input} \cmdbs{clearpage}
+\end{itemize}
+	
+	\begin{minted}[fontsize=\small,frame=single]{latex}
+		\input{introducao} 	% o arquivo introducao.tex
+							% existe no mesmo diret\'orio
+							
+		\include{materiais} % o arquivo materiais.tex 
+							%existe no mesmo diret\'orio
+	\end{minted}
+	  
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,6 +145,19 @@
 		\includegraphics[width=\textwidth,clip,trim=1.8in 4.8in 1.6in 0in]{structure-crossref.pdf}}
 	\end{minipage}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Atenção - Compilação}
+	\begin{itemize}
+		\item Quando se insere referências cruzadas, é necessário compilar duas vezes.
+		\item Compilando uma vez só, aparecerão pontos de interrogação (\keystroke{?}) no lugar da referência utilizada.
+		\item Na segunda compilação, os respectivos números são inseridos no lugar dos \keystroke{?}.
+	\end{itemize}
+\end{frame}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -140,7 +189,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Figures and Tables}
+\section{Figuras e Tabelas}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,11 +203,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Gráficos}
+\subsection{Figuras}
 
 \begin{frame}[fragile]{\insertsubsection}
 	\begin{itemize}
-		\item Requer o uso do pacote \bftt{graphicx}, no qual esté definido o 
+		\item Requer o uso do pacote \bftt{graphicx}, no qual está definido o 
 		comando \cmdbs{includegraphics}.
 		\item Os formatos de gráficos suportados incluem JPEG, PNG and PDF (usualmente). 
 	\end{itemize}
@@ -245,6 +294,66 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{\insertsubsection}
+
+	\begin{itemize}
+		\item Observe que não podemos referenciar as tabelas que criamos anteriormente. Por que?
+		\item Para isso, devemos utilizar o ambiente \cmd{table}.
+	\end{itemize}
+	
+	\begin{exampletwouptiny}
+		\begin{table}[h]\footnotesize
+		\caption{Performance F-measure}
+			\begin{tabular}{|l|r|r|} 	\hline
+				Item   & Qtd & R\$ 		\\ \hline
+				Widget & 1   & 199,99  	\\
+				Gadget & 2   & 399,99  	\\
+				Cabo   & 3   & 19,99   	\\ \hline
+			\end{tabular}
+			\label{tab:minha-tabela}
+		\end{table}
+		
+		Os valores dos produtos
+		dispon\'iveis s\~ao apresentados
+		na Tabela~\ref{tab:minha-tabela}.
+	\end{exampletwouptiny}	
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsection{} - Cores}
+
+	\begin{exampletwouptiny}
+		% indica a core nas linhas pares e \'impares
+	    \rowcolors{1}{yellow}{green} 
+	    \begin{tabular}{|l|c|}\hline
+	    Nome & Vida \\ \hline
+	    J.\ S.\ Bach
+	    & 1685--1750 \\
+	    W.\ A.\ Mozart & 1756--1791 \\
+	    L.\ Beethoven & 1770--1827 \\
+	    F.\ Chopin
+	    & 1810--1849 \\
+	    R.\ Schumann
+	    & 1810--1856 \\
+	    B.\ Bartok & 1881--1945 \\ \hline
+	    \end{tabular}
+	\end{exampletwouptiny}
+
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsection{} - Cores}
+
+Outra opção:
+
+	\begin{minipage}{0.55\linewidth}
+		\inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
+	  {colored-table2.tex}
+	\end{minipage}	
+	\begin{minipage}{0.35\linewidth}
+		\includegraphics[width=\textwidth,clip,trim=3in 7in 3.5in 1in]{colored-table2.pdf}
+	\end{minipage}
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -310,8 +419,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exercise}
-\begin{frame}[fragile]{Exercício: Colocando tudo junto}
+\subsection{Exercício}
+\begin{frame}[fragile]{\insertsubsection{} - Colocando tudo junto}
 
 Adicione uma imagem e a bibliografia ao artigo do exercício anterior.
 
@@ -335,7 +444,7 @@ Adicione uma imagem e a bibliografia ao artigo do exercício anterior.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{O que há na sequência?}
+\section{O que há em seguida?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -350,22 +459,72 @@ Adicione uma imagem e a bibliografia ao artigo do exercício anterior.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mais coisas interessantes}
-\begin{frame}[fragile]{\insertsubsection}
+\begin{frame}[fragile]{\insertsubsection{} - Listas iniciais}
 	\begin{itemize}
-		\item Adicione o comando \cmdbs{tableofcontents} para gerar o sumário a partir dos comandos \cmdbs{section}.
+		\item \cmdbs{tableofcontents} para gerar o sumário a partir dos comandos \cmdbs{section}.
+		\item \cmdbs{listoffigures} para gerar a lista de figuras.
+		\item \cmdbs{listoftables} para gerar lista de tabelas.
+		\item \cmdbs{listofalgorithms} para gerar a lista de algoritmos.
+	\end{itemize}
+	
+	\alert{Tudo automaticamente} \Simley{0.6}
 		
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+\begin{frame}[fragile]{\insertsubsection{} - Outras classes de documentos}
+	\begin{itemize}
 		\item Altere o comando \cmdbs{documentclass} para
 		\mint{latex}!\documentclass{scrartcl}!
 		or
 		\mint{latex}!\documentclass[12pt]{IEEEtran}!
+	\end{itemize}
+	
+	\alert{Atenção:} o pacote que define a classe do documento deve estar instalado!
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsubsection{} - Outras classes de documentos}
+	\begin{center}
+	  \begin{tabular}{l|p{0.6\textwidth}}
+	     \hline \hline
+	     classe \LaTeX &  prop\'osito \\
+	     \hline \hline
+	     article &  artigos para periódicos, eventos, relatórios curtos \\
+	     report  & textos mais longos, com capítulos (\emph{e.g.} monografia, tese, TCC)\\
+	     book    & livros \\
+	     letter  & cartas \\
+	     beamer  &   slides \\
+	     sciposter &        pôsteres \\
+	     \hline
+	  \end{tabular}
+	\end{center}
+   Também existem classes específicas para alguns veículos  (\emph{e.g.}
+  Springer, Elsevier, IEEE, etc) e outros tipos de documentos.
+\end{frame}
+
 		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+\begin{frame}[fragile]{\insertsubsection{} - Defina seus próprios comandos}
+	\begin{itemize}
 		\item Defina seus próprios comandos para equações complexas:
 		\begin{exampletwouptiny}
-		\newcommand{\rperf}{%
-		  \rho_{\text{perf}}}
-		$$
-		\rperf = {\bf c}'{\bf X} + \varepsilon
-		$$
+			\newcommand{\rperf}{%
+			  \rho_{\text{perf}}}
+			
+			\newcommand{\fm}{
+			  \textit{F1$^\mu$}}
+
+			$$
+			\rperf = {\bf c}'{\bf X} + \varepsilon
+			$$
+			
+			$$ \fm = 0.97 $$
+
 		\end{exampletwouptiny}
 	\end{itemize}
 \end{frame}
@@ -373,7 +532,68 @@ Adicione uma imagem e a bibliografia ao artigo do exercício anterior.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\insertsubsection{} - Defina seus próprios comandos}
+
+ Texto em que as páginas são citadas.
+ 
+\begin{minted}[fontsize=\scriptsize,frame=single]{latex}
+	%esses comandos ajustam para Portugues 
+	%as p\'aginas em que as refer\^encias s\~ao citadas
+	\renewcommand*{\backref}[1]{}
+	\renewcommand*{\backrefalt}[4]{
+	    \ifcase #1
+	        N\~ao citado no texto.
+	    \or
+	        Citado na p\'agina~#2.
+	    \else
+	        Citado nas p\'aginas~#2.
+	    \fi
+	}
+	
+	\renewcommand{\backreftwosep}{ e~}
+	\renewcommand{\backreflastsep}{, e~}
+\end{minted}
+\end{frame}
+
+
+\begin{frame}[fragile]{\insertsubsection{} - Tornando os links ``navegáveis''}
+
+	\begin{minted}[fontsize=\scriptsize,frame=single]{latex}
+	\usepackage[            
+	            plainpages=false, % coloca links no pdf, corrige
+	            pdfpagelabels, % problemas c/ numeracao em romanos            
+	            bookmarks, %cria bookmarks 
+	            pagebackref, % coloca as paginas citadas na bibliografia
+	            hyperfootnotes=false % desabilita links nos footnotes, 
+   	            % gera um warning se removido
+	            ] 
+	            {hyperref} 
+	
+	\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue}
+	\end{minted}
+
+\end{frame}
+
+\subsection{Exercício}
+\begin{frame}[fragile]{\insertsubsection{} - Colocando tudo junto}
+
+\begin{itemize}
+	\item Crie um novo projeto no formato de relatório com mais de duas seções.
+	\item Adicione conteúdo a esse relatório. Pode usar o artigo do exercício anterior para uma seção, por exemplo.
+	\item Adicione o recurso de navegação por \textit{links} e referências ``aprimoradas''  a novo relatório.
+	\item Adicione as listas de elementos no início do documento.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mais pacotes interessantes}
+
 \begin{frame}{\insertsubsection}
 	\begin{itemize}
 		\item \bftt{beamer}: para apresentações (como essa aqui!)
@@ -401,7 +621,7 @@ Adicione uma imagem e a bibliografia ao artigo do exercício anterior.
 				\item Mac: \href{http://tug.org/mactex/}{Mac\TeX}
 			\end{itemize} 
 		\item Você também vai querer um editor com suporte ao \LaTeX{}. Veja uma lista com (muitas) opções em {\scriptsize \url{http://en.wikipedia.org/wiki/Comparison_of_TeX_editors}}.
-		\item Você terá que aprender mais sobre como \bftt{latex} e suas ferramentas relacionadas trabalham --- veja os recursos no próximo slide.
+		\item Você terá que aprender mais sobre como \bftt{latex} e suas ferramentas relacionadas trabalham --- veja os recursos no próximo \textit{slide}.
 	\end{itemize}
 \end{frame}
 
@@ -427,7 +647,7 @@ Adicione uma imagem e a bibliografia ao artigo do exercício anterior.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \begin{center}
-	Obrigado, e feliz \TeX{}ing!
+	Obrigado, e ``have a nice \TeX{}ing!''
 \end{center}
 \end{frame}
 
